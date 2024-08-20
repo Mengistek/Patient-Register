@@ -2,12 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Patients List</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/css/patient.css}">
 </head>
 <body>
 <h1>Patients</h1>
 <table border="1">
     <tr>
+        <th>Patient Number</th>
         <th>Full Name</th>
         <th>Email</th>
         <th>Phone Number</th>
@@ -16,6 +17,7 @@
         <th>Actions</th>
     </tr>
     <tr th:each="patient : ${patients}">
+        <td th:text="${patient.patientNumber}"></td>
         <td th:text="${patient.fullName}"></td>
         <td th:text="${patient.emailAddress}"></td>
         <td th:text="${patient.contactPhoneNumber}"></td>

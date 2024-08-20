@@ -20,8 +20,9 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long patientId;
 
-    @NotBlank
+
     @Column(unique = true)
+    @NotBlank
     private String patientNumber;
 
 
@@ -42,7 +43,7 @@ public class Patient {
 
 
     @NotBlank
-    @Column(unique = true)
+
     private LocalDate dateOfBirth;
 }
 

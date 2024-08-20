@@ -75,13 +75,13 @@ public class PatientController {
     public String listPatients(Model model) {
         List<PatientResponseDTO> patients = patientService.getAllPatients();
         model.addAttribute("patients", patients);
-        return "patients"; // This will render the patients.html template
+        return "/patient/patients"; // This will render the patients.html template
     }
 
     @GetMapping("/new")
     public String showRegistrationForm(Model model) {
         model.addAttribute("patient", new PatientRequestDTO());
-        return "register_patient"; // This will render the register_patient.html template
+        return "patient/register_patient";
     }
 
     @PostMapping
@@ -94,7 +94,7 @@ public class PatientController {
     public String showEditForm(@PathVariable Long id, Model model) {
         PatientResponseDTO patient = patientService.getPatientById(id);
         model.addAttribute("patient", patient);
-        return "register_patient"; // Reuses the same template for editing
+        return "patient/register_patient";
     }
 
     @PostMapping("/edit/{id}")
