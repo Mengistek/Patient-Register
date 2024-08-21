@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -66,5 +67,10 @@ public class PatientService implements PatientImp{
         Patient patient = patientRepository.findById(id)
                 .orElseThrow(()-> new PatientNotFoundException("Patient not found with Id: "+id));
         patientRepository.delete(patient);
+    }
+
+    public List<Patient> getElderlyPatients(){
+        LocalDate elderlyThreshold = LocalDate.now().minusYears(65);
+        return patientRepository.findByDateOfBirthBeforeOrderByDateOfBirthAsc(elderlyThreshold);
     }
 }

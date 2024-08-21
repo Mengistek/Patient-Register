@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Elderly Patients</title>
+    <link rel="stylesheet" th:href="@{/css/css/elderly.css}">
+</head>
+<body>
+<h1>Elderly Patients List</h1>
+<table border="1">
+    <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Date of Birth</th>
+    </tr>
+    <tr th:each="patient : ${patients}">
+        <td th:text="${patient.patientNumber}"></td>
+        <td th:text="${patient.fullName}"></td>
+        <td th:text="${patient.emailAddress}"></td>
+        <td th:text="${patient.contactPhoneNumber}"></td>
+        <td th:text="${patient.dateOfBirth}"></td>
+    </tr>
+</table>
+<a href="/patients">Back to Patients List</a>
+</body>
+</html>

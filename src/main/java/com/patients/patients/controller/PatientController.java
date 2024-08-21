@@ -108,4 +108,11 @@ public class PatientController {
         patientService.deletePatientById(id);
         return "redirect:/patients";
     }
+    @GetMapping("/elderly")
+    @ResponseStatus(HttpStatus.OK)
+    public String getElderlyPatients(Model model){
+        List<Patient> elderlyPatients = patientService.getElderlyPatients();
+        model.addAttribute("patients",elderlyPatients);
+        return "patient/elderlyPatients";
+    }
 }

@@ -8,6 +8,8 @@
 <body>
 <h1>Register New Patient</h1>
 <form th:action="@{/patients}" th:object="${patient}" method="post">
+    <label for="patientNumber">Patient Number Name:</label>
+    <input type="text" id="patientNumber" th:field="*{patientNumber}" required><br>
     <label for="fullName">Full Name:</label>
     <input type="text" id="fullName" th:field="*{fullName}" required><br>
 
