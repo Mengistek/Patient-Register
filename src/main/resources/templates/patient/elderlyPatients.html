@@ -14,7 +14,7 @@
         <th>Date of Birth</th>
     </tr>
     <tr th:each="patient : ${patients}">
-        <td th:text="${patient.patientNumber}"></td>
+
         <td th:text="${patient.fullName}"></td>
         <td th:text="${patient.emailAddress}"></td>
         <td th:text="${patient.contactPhoneNumber}"></td>
@@ -22,5 +22,6 @@
     </tr>
 </table>
 <a href="/patients">Back to Patients List</a>
+<p>create by M.T</p>
 </body>
 </html>
